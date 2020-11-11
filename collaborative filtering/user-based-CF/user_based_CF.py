@@ -71,10 +71,11 @@ class UserBasedCF:
         return sorted(rank.items(), key=operator.itemgetter(1), reverse=True)[0:self.n]
         
 
-file_path = "C:\\Users\\DELL\\Desktop\\code\\python\\dataset\\ml-latest-small\\ratings.csv"
-userBasedCF = UserBasedCF()
-userBasedCF.get_data(file_path)
-userBasedCF.similarity()
-user = random.sample(list(userBasedCF.train), 1)
-rec = userBasedCF.recommendation(user[0])
-print(rec)
+if __name__ == "__main__":    
+    file_path = "C:\\Users\\DELL\\Desktop\\code\\python\\dataset\\ml-latest-small\\ratings.csv"
+    userBasedCF = UserBasedCF()
+    userBasedCF.get_data(file_path)
+    userBasedCF.similarity()
+    user = random.sample(list(userBasedCF.train), 1)
+    rec = userBasedCF.recommendation(user[0])
+    print(rec)
