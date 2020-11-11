@@ -12,7 +12,7 @@ class UserBasedCF:
         self.N = {}  # number of items user interacted, N[u] = the number of items user u interacted
         self.W = {}  # similarity of user u and user v
 
-        self.train = {} # train = { user : [item, rating], …… }
+        self.train = {} # train = { user : [[item1, rating1], [item2, rating2], …], …… }
         self.item_users = {}    # item_users = { item : [user1, user2, …]， …… }
 
         # recommend n items from the k most similar users
