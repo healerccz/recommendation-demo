@@ -35,15 +35,14 @@ class ItemBasedCF:
                 
 
     def similarity(self):
-        for item, users in self.item_users.items():
-            self.N.setdefault(item, 0)
-            for i in item:
-                self.N[item] += 1
-                for v in item:
-                    if u != v:
-                        self.W.setdefault(u, {})
-                        self.W[u].setdefault(v, 0)
-                        self.W[u][v] += 1
+        for i in self.item_users.keys():
+            self.N.setdefault(i, 0)
+            self.N[i] = len(self.item_users[i])
+            for j in self.item_users.keys():
+                if i != j:
+                    self.W.setdefault(i, {})
+                    self.W[i].setdefault(j, 0)
+                    self.W[i][j] += 1
         for i, j_cnt in self.W.items():
             for j, cnt in j_cnt.items():
                 self.W[i][j] = self.W[i][j] / self.N[i] * self.N[j] ** 0.5
