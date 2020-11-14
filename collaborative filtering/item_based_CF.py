@@ -13,6 +13,7 @@ class ItemBasedCF:
 
         self.train = {}
 
+        # recommend n items from the k most similar to the items user have interacted 
         self.k = 30
         self.n = 10
 
